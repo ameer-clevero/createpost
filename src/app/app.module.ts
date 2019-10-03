@@ -9,6 +9,7 @@ import { PostService } from './services/post.service';
 import {
   HttpClientModule
 } from '@angular/common/http';
+import { PostComponent } from './post/post.component';
 const routes: Routes = [
   { path: '', redirectTo: '/create', pathMatch: 'full' },
   { path: 'create', component: CreateComponent },
@@ -18,7 +19,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     CreateComponent,
-    PostsComponent
+    PostsComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

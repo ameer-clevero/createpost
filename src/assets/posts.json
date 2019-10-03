@@ -1,15 +1,1 @@
-{
-    "posts": [{
-            "title": "Bahubali",
-            "content": "4.5/5"
-        },
-        {
-            "title": "Odiyan",
-            "content": "3/5"
-        },
-        {
-            "title": "Krish",
-            "content": "4/5"
-        }
-    ]
-}
+{"posts":[{"id":1570101046692,"title":"asd","content":"asdas"},{"id":1570107118952,"title":"sadf","content":"dfdsf"}]}

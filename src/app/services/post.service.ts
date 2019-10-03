@@ -12,11 +12,8 @@ export class PostService {
 
   }
 
-
-
-
-  addPost = (post) => {
-    this.posts.push(post);
+  async addPost(post) {
+    const res: any = await this.httpClient.post('http://localhost:3208/add', post).toPromise();
   }
 
   async getPost() {
@@ -24,8 +21,12 @@ export class PostService {
       const res: any = await this.httpClient.get(this.dataURL).toPromise();
       this.posts = res.posts;
     }
-
     return this.posts;
+  }
+
+  async deletePost(id) {
+    let idobj = { "id": id };
+    const res: any = await this.httpClient.post('http://localhost:3208/delete', idobj).toPromise();
   }
 
 }

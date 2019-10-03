@@ -1,0 +1,8 @@
+<div class="card m-3" style="width: 18rem;">
+    <div class="card-body">
+        <i class="fa fa-times float-right" (click)="this.postService.deletePost(post.id)"></i>
+        <h5 class="card-title">{{post.title}}</h5>
+        <p class="card-text text-secondary">{{post.content}}</p>
+        <p class="card-text text-secondary">{{post.id}}</p>
+    </div>
+</div>
