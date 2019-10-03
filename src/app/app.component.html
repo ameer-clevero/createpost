@@ -1,0 +1,22 @@
+<nav class="navbar nav-tabs navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav nav-tabs mr-auto" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link" id="create-tab" routerLinkActive="active" [routerLink]="['/create']" role="tab">Create</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="posts-tab" routerLinkActive="active" [routerLink]="['/posts']" role="tab">Post</a>
+        </li>
+    </ul>
+</nav>
+<!-- <div class="tab-content" id="myTabContent">
+    <div class="tab-pane show active" id="create" role="tabpanel">
+        <app-create (postAdd)="addPost($event)"></app-create>
+    </div>
+    <div class="tab-pane" id="posts" role="tabpanel">
+        <div class="row">
+            <app-posts [</app-posts>
+        </div>
+    </div>
+</div> -->
+
+<router-outlet></router-outlet>

@@ -1,0 +1,15 @@
+{
+    "posts": [{
+            "title": "Bahubali",
+            "content": "4.5/5"
+        },
+        {
+            "title": "Odiyan",
+            "content": "3/5"
+        },
+        {
+            "title": "Krish",
+            "content": "4/5"
+        }
+    ]
+}
