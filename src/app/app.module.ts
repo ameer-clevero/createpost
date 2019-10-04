@@ -10,6 +10,7 @@ import {
   HttpClientModule
 } from '@angular/common/http';
 import { PostComponent } from './post/post.component';
+import { postFilter } from './postfilter.pipe';
 const routes: Routes = [
   { path: '', redirectTo: '/create', pathMatch: 'full' },
   { path: 'create', component: CreateComponent },
@@ -20,7 +21,8 @@ const routes: Routes = [
     AppComponent,
     CreateComponent,
     PostsComponent,
-    PostComponent
+    PostComponent,
+    postFilter
   ],
   imports: [
     BrowserModule,

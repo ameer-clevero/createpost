@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { PostService } from '../services/post.service';
 @Component({
   selector: 'app-post',
@@ -8,8 +8,10 @@ import { PostService } from '../services/post.service';
 export class PostComponent implements OnInit {
   @Input() post;
   constructor(private postService: PostService) { }
-
+  @Output() updatecards: EventEmitter<string> = new EventEmitter<string>();
   ngOnInit() {
   }
-
+  updatecard = () => {
+    this.updatecards.emit();
+  }
 }

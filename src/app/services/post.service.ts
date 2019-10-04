@@ -6,8 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostService {
 
-  posts = [];
-  dataURL = '../../assets/posts.json';
+
   constructor(private httpClient: HttpClient) {
 
   }
@@ -16,13 +15,6 @@ export class PostService {
     const res: any = await this.httpClient.post('http://localhost:3208/add', post).toPromise();
   }
 
-  async getPost() {
-    if (this.posts && this.posts.length === 0) {
-      const res: any = await this.httpClient.get(this.dataURL).toPromise();
-      this.posts = res.posts;
-    }
-    return this.posts;
-  }
 
   async deletePost(id) {
     let idobj = { "id": id };

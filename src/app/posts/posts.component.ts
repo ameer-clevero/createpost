@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PostService } from '../services/post.service';
-
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
@@ -8,9 +7,16 @@ import { PostService } from '../services/post.service';
 })
 export class PostsComponent implements OnInit {
   posts = [];
-  constructor(private postService: PostService) { }
+  searchTerm = '';
+  dataURL = 'http://localhost:3208/posts.json';
+  constructor(private httpClient: HttpClient) { }
 
-  async ngOnInit() {
-    this.posts = await this.postService.getPost();
+  ngOnInit() {
+    this.getData();
+  }
+
+  async getData() {
+    this.posts = await this.httpClient.get(this.dataURL).toPromise();
+    this.posts = this.posts.posts;
   }
 }
