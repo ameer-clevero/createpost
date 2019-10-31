@@ -1,6 +1,6 @@
 <div class="border border-primary rounded w-25 p-3 float-right">Search <input type="text" [(ngModel)]="searchTerm"></div>
 <div class="row">
     <div *ngFor="let post of posts | postFilter:searchTerm">
-        <app-post (updatecards)="getData();getData();" [post]="post"></app-post>
+        <app-post (updateData)="this.getData()" [post]="post"></app-post>
     </div>
 </div>

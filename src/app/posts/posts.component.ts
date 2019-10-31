@@ -1,22 +1,25 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { PostService } from '../services/post.service';
+
 @Component({
   selector: 'app-posts',
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
 export class PostsComponent implements OnInit {
-  posts = [];
+  posts: any;
   searchTerm = '';
-  dataURL = 'http://localhost:3208/posts.json';
-  constructor(private httpClient: HttpClient) { }
+  dataURL = '';
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
     this.getData();
   }
 
   async getData() {
-    this.posts = await this.httpClient.get(this.dataURL).toPromise();
+    this.posts = await this.postService.getData();
     this.posts = this.posts.posts;
   }
+
+
 }

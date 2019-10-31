@@ -6,20 +6,27 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostService {
 
-
   constructor(private httpClient: HttpClient) {
 
   }
 
-  async addPost(post) {
-    const res: any = await this.httpClient.post('http://localhost:3208/add', post).toPromise();
+  addPost(post) {
+    return this.httpClient.post('http://localhost:3208/add', post).toPromise();
   }
 
 
-  async deletePost(id) {
-    let idobj = { "id": id };
-    const res: any = await this.httpClient.post('http://localhost:3208/delete', idobj).toPromise();
+  deletePost(id) {
+    return this.httpClient.delete('http://localhost:3208/' + id).toPromise();
   }
 
+  getData() {
+    return this.httpClient.get('http://localhost:3208').toPromise();
+  }
+
+
+
+  editPost(post) {
+    return this.httpClient.put('http://localhost:3208/edit', post).toPromise();
+  }
 }
 

@@ -6,24 +6,38 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  dataAdded = false;
-  post = {
-    title: '',
-    content: ''
-  };
-
+  post = '';
   constructor(private postService: PostService) { }
-
   ngOnInit() {
+    this.fetchData();
   }
 
-  onBtnClck() {
-    this.postService.addPost({ ...this.post });
-    this.post.title = '';
-    this.post.content = '';
-    this.dataAdded = true;
+  async fetchData() {
+    this.post = await this.postService.getData();
+    if (this.post.success == "false") {
+      alert("Err: Failed fetching data");
+    }
+    document.getElementById("titleInput").focus();
+  }
+
+  async onBtnClck() {
+    if (this.post.title != '' && this.post.content != '') {
+      await this.postService.addPost({ ...this.post })
+        .then(res => {
+          if (res.success) {
+            alert("Success: Data posted!");
+          }
+        });
+      this.post.title = '';
+      this.post.content = '';
+      document.getElementById("titleInput").focus();
+    }
+    else {
+      alert("Err: empty fields!");
+    }
   }
 
 }
+
 
 

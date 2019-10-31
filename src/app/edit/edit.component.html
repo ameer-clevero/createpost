@@ -1,0 +1,7 @@
+<label>POST ID:{{post.id}}</label>
+<div> Title:
+    <input id="titleInput" type="text" class="rounded" [(ngModel)]="post.title"> <br><br> Content:<br><br>
+    <textarea class="rounded" rows="10" cols="40" [(ngModel)]="post.content"></textarea><br><br>
+    <button type="button" class="btn btn-primary" (click)="editPost()">Edit</button>
+    <button type="button" class="btn btn-primary" (click)="this.router.navigate(['/posts']);">Cancel</button>
+</div>
